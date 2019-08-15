@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'questions.dart';
-
+import 'package:rflutter_alert/rflutter_alert.dart';
 void main() => runApp(QuizzerApp());
 
 class QuizzerApp extends StatelessWidget {
@@ -43,18 +43,44 @@ class _MainAppState extends State<MainApp> {
     Question(question: 'Functions cannot return more than one value at a time', answer: true)
   ];
   List<Icon> score = [];
+  int marks = 0;
 
   void checkAnswer({bool answer}){
-    setState(() {
-      if(index < questions.length - 1){
-        if(questions[index].answer == answer){
+    if(index < questions.length - 1) {
+      setState(() {
+        if (questions[index].answer == answer) {
           score.add(Icon(Icons.check, color: Colors.green,));
+          marks++;
         } else {
           score.add(Icon(Icons.close, color: Colors.red,));
         }
         index++;
-      }
-    });
+      });
+    } else {
+      Alert(
+        context: context,
+        type: AlertType.success,
+        title: "Congradulations!",
+        desc: "Your score is $marks",
+        buttons: [
+          DialogButton(
+            child: Text(
+              "Retake",
+              style: TextStyle(color: Colors.white, fontSize: 20),
+            ),
+            onPressed: () {
+              Navigator.pop(context);
+              setState(() {
+                index = 0;
+                marks = 0;
+                score.clear();
+              });
+            },
+            width: 120,
+          )
+        ],
+      ).show();
+    }
   }
   @override
   Widget build(BuildContext context) {
