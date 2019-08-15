@@ -1,16 +1,22 @@
-# quizer_app
+<h1 align="center">Welcome to Quizer App 👋</h1>
+<p>
+  <a href="https://twitter.com/iamsaqibs">
+    <img alt="Twitter: iamsaqibs" src="https://img.shields.io/twitter/follow/iamsaqibs.svg?style=social" target="_blank" />
+  </a>
+</p>
 
-A quizer app built on flutter.
+> A quiz score keeping app built on flutter.
 
-## Getting Started
+## Author
 
-This project is a starting point for a Flutter application.
+👤 **Saqib S.**
 
-A few resources to get you started if this is your first Flutter project:
+* Twitter: [@iamsaqibs](https://twitter.com/iamsaqibs)
+* Github: [@iamsaqibs](https://github.com/iamsaqibs)
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+## Show your support
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Give a ⭐️ if this project helped you!
+
+***
+_This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
