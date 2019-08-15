@@ -28,46 +28,30 @@ class MainApp extends StatefulWidget {
 class _MainAppState extends State<MainApp> {
   int index = 0;
   int limit = 11;
+  List<Question> questions = [
+    Question(question: 'Parent constructors are not called implicitly if the child class defines a constructor?', answer: true),
+    Question(question: 'Interface constant can be override in class implementing the interface.', answer: false),
+    Question(question: 'Static methods can be call with class name and colon operator, \"this\" is not available inside the method declared as static.',  answer: true),
+    Question(question: 'Static properties can be accessed through the object using the arrow operator \"->\".', answer: false),
+    Question(question: 'If parent class has Final method abc(). Method abc() can be overridden in child class.', answer: false),
+    Question(question: 'In PHP, a class can be inherited from one base class and with multiple base classes.', answer: false),
+    Question(question: 'To create instance of class \"new\" keyword is not required.', answer: false),
+    Question(question: '\"this\" is a reference to the calling object', answer: true),
+    Question(question: 'The variable name is case-sensitive in PHP.', answer: true),
+    Question(question: 'PHP is an open source software', answer: true),
+    Question(question: 'A function cannot be defined inside another function', answer: true),
+    Question(question: 'Functions cannot return more than one value at a time', answer: true)
+  ];
   List<Icon> score = [];
-  List<String> questions = [
-    'Parent constructors are not called implicitly if the child class defines a constructor?',
-    'Parent constructors are not called implicitly if the child class defines a constructor.',
-    'Interface constant can be override in class implementing the interface.',
-    'Static methods can be call with class name and colon operator, \"this\" is not available inside the method declared as static.',
-    'Static properties can be accessed through the object using the arrow operator \"->\".',
-    'If parent class has Final method abc(). Method abc() can be overridden in child class.',
-    'In PHP, a class can be inherited from one base class and with multiple base classes.',
-    'To create instance of class \"new\" keyword is not required.',
-    '\"this\" is a reference to the calling object',
-    'The variable name is case-sensitive in PHP.',
-    'PHP is an open source software',
-    'A function cannot be defined inside another function',
-    'Functions cannot return more than one value at a time',
-  ];
-  List<bool> answers = [
-    true,
-    false,
-    true,
-    false,
-    false,
-    false,
-    false,
-    true,
-    true,
-    true,
-    true,
-    true,
-  ];
-  
+
   void checkAnswer({bool answer}){
     setState(() {
-      if(index <= limit){
-        if(answer == answers[index]){
+      if(index < questions.length - 1){
+        if(questions[index].answer == answer){
           score.add(Icon(Icons.check, color: Colors.green,));
         } else {
           score.add(Icon(Icons.close, color: Colors.red,));
         }
-
         index++;
       }
     });
@@ -84,7 +68,7 @@ class _MainAppState extends State<MainApp> {
             padding: EdgeInsets.all(10.0),
             child: Center(
               child: Text(
-                questions[index],
+                questions[index].question,
                 textAlign: TextAlign.center,
                 style: TextStyle(fontSize: 25.0, color: Colors.white),
               ),
